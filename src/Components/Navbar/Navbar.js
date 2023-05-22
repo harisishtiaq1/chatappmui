@@ -17,6 +17,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Logo from "../Assets/download.png";
 import TranslateIcon from "@mui/icons-material/Translate";
 import person1 from "../Assets/A10.jpg";
+import SideBar from "../SideBar/SideBar";
 function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -153,6 +154,7 @@ function Navbar() {
           </Box>
         </Toolbar>
       </AppBar>
+      <SideBar />
       <Popover
         id={id}
         open={open}
