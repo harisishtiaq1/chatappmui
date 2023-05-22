@@ -22,7 +22,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 function Messages() {
   return (
-    <Box sx={{ display: "none" }}>
+    <Box>
       <Typography sx={{ fontWeight: "700", ml: 2, fontSize: "16px" }}>
         Connections
       </Typography>

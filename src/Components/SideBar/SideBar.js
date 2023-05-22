@@ -13,7 +13,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import person1 from "../Assets/A11.jpg";
 import Scrollbars from "react-custom-scrollbars";
 import SearchIcon from "@mui/icons-material/Search";
-import React from "react";
+import React, { useState } from "react";
 import Chat from "../Chat/Chat";
 import Messages from "./Messages";
 import Contacts from "./Contacts";
@@ -26,8 +26,22 @@ const thumbStyle = {
   height: "5px",
 };
 
-
 function SideBar() {
+  const [showMessageComponent, setShowMessageComponent] = useState(true);
+  const [showContactsComponent, setShowContactsComponent] = useState(false);
+  const [progressValue, setProgressValue] = useState(0);
+
+  const handleToggleMessageComponent = () => {
+    setShowMessageComponent(true);
+    setShowContactsComponent(false);
+    setProgressValue(50);
+  };
+
+  const handleToggleContactsComponent = () => {
+    setShowContactsComponent(true);
+    setShowMessageComponent(false);
+    setProgressValue(100);
+  };
   return (
     <Box sx={{ mt: 7, ml: 12 }}>
       <Stack sx={{ mt: 4 }}>
@@ -101,24 +115,38 @@ function SideBar() {
                     display: "flex",
                     alignItems: "center",
                     cursor: "pointer",
-                    color: "#0373fc",
+                    color: showMessageComponent ? "#0373fc" : "black",
                   }}
+                  onClick={handleToggleMessageComponent}
                 >
-                  <IconButton sx={{ width: 40, height: 40, color: "#0373fc" }}>
+                  <IconButton
+                    sx={{
+                      width: 40,
+                      height: 40,
+                      color: showMessageComponent ? "#0373fc" : "black",
+                    }}
+                  >
                     <MailIcon />
                   </IconButton>
                   <Typography>Messages</Typography>
                 </Stack>
                 <Stack
+                  onClick={handleToggleContactsComponent}
                   direction="column"
                   sx={{
                     display: "flex",
                     alignItems: "center",
                     cursor: "pointer",
-                    color: "#0373fc",
+                    color: showContactsComponent ? "#0373fc" : "black",
                   }}
                 >
-                  <IconButton sx={{ width: 40, height: 40, color: "#0373fc" }}>
+                  <IconButton
+                    sx={{
+                      width: 40,
+                      height: 40,
+                      color: showContactsComponent ? "#0373fc" : "black",
+                    }}
+                  >
                     <ContactsIcon />
                   </IconButton>
                   <Typography>Contacts</Typography>
@@ -128,7 +156,7 @@ function SideBar() {
                 <LinearProgress
                   sx={{ height: "2px" }}
                   variant="determinate"
-                  value={50}
+                  value={progressValue}
                 />
               </Box>
               <Scrollbars
@@ -138,8 +166,8 @@ function SideBar() {
                   <div {...props} style={{ ...style, ...thumbStyle }} />
                 )}
               >
-                {/* <Messages/> */}
-                <Contacts/>
+                {showMessageComponent && <Messages />}
+                {showContactsComponent && <Contacts />}
               </Scrollbars>
             </Paper>
           </Grid>

@@ -21,7 +21,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 function Chat() {
   return (
-    <Paper sx={{borderRadius:'16px'}}>
+    <Paper sx={{ borderRadius: "16px" }}>
       <Box sx={{ display: "flex" }}>
         <Box>
           <StyledBadge
