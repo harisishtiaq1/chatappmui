@@ -6,11 +6,14 @@ import {
   IconButton,
   Paper,
   Stack,
+  TextField,
   Tooltip,
   Typography,
 } from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import React from "react";
+import AttachFileIcon from "@mui/icons-material/AttachFile";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import CallIcon from "@mui/icons-material/Call";
 import person4 from "../Assets/A10.jpg";
@@ -46,7 +49,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 function Chat() {
   return (
-    <Paper sx={{ borderRadius: "16px", padding: 2, height: "430px", ml: 4 }}>
+    <Paper sx={{ borderRadius: "16px", padding: 2, ml: 4 }}>
       <Box
         sx={{
           display: "flex",
@@ -140,6 +143,35 @@ function Chat() {
         </Box>
       </Box>
       <Divider sx={{ backgroundColor: "grey", height: "1px", mt: 3 }} />
+      <Box>
+        <Divider sx={{ backgroundColor: "grey", height: "1px" }} />
+        <Stack direction="row">
+          <IconButton>
+            <AttachFileIcon />
+          </IconButton>
+          <TextField
+            InputProps={{
+              style: { borderRadius: "10px", height: "40px" },
+            }}
+            sx={{ width: "700px", borderRadius: "16px", padding: "12px 14px" }}
+            placeholder="Type Something"
+          />
+          <IconButton
+            sx={{
+              backgroundColor: "rgb(10, 143, 220)",
+              height: 45,
+              width: 45,
+              color: "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              mt: 1,
+            }}
+          >
+            <SendIcon />
+          </IconButton>
+        </Stack>
+      </Box>
     </Paper>
   );
 }

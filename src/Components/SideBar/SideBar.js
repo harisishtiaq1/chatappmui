@@ -43,7 +43,7 @@ function SideBar() {
     setProgressValue(100);
   };
   return (
-    <Box sx={{ mt: 7, ml: 12 }}>
+    <Box sx={{ mt: 7, ml: 5 }}>
       <Stack sx={{ mt: 4 }}>
         <Box position="static" sx={{ mt: 4 }}>
           <Typography sx={{ fontWeight: "bold", fontSize: "17px" }}>
