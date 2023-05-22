@@ -1,6 +1,6 @@
 import { Avatar, Badge, Box, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
-import person1 from "../Assets/A10.jpg";
+import person4 from "../Assets/A10.jpg";
 import { styled } from "@mui/material/styles";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -15,40 +15,49 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
       width: "100%",
       height: "100%",
       borderRadius: "50%",
+      animation: "ripple 1.2s infinite ease-in-out",
+      border: "1px solid currentColor",
+      content: '""',
+    },
+  },
+  "@keyframes ripple": {
+    "0%": {
+      transform: "scale(.8)",
+      opacity: 1,
+    },
+    "100%": {
+      transform: "scale(2.4)",
+      opacity: 0,
     },
   },
 }));
 
 function Chat() {
   return (
-    <Paper sx={{ borderRadius: "16px" }}>
-      <Box sx={{ display: "flex" }}>
-        <Box>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
+    <Paper sx={{ borderRadius: "16px", padding: 2 }}>
+      <Box sx={{ display: "flex", ml: 0.5 }}>
+        <StyledBadge
+          overlap="circular"
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          variant="dot"
+        >
+          <Avatar alt="Remy Sharp" src={person4} />
+        </StyledBadge>
+        <Stack direction="column">
+          <Typography sx={{ fontWeight: "600", ml: 2 }}>
+            Jubina Chawla
+          </Typography>
+          <Typography
+            sx={{
+              ml: 2,
+              fontWeight: "100",
+              color: "grey",
+              fontSize: "13px",
+            }}
           >
-            <Avatar alt="Remy Sharp" src={person1} />
-          </StyledBadge>
-          <Stack>
-            <Typography
-              sx={{ fontWeight: "600", mt: 2, ml: 2, fontSize: "16px" }}
-            >
-              John Alex
-            </Typography>
-            <Typography
-              sx={{
-                fontWeight: "400",
-                fontSize: "14px",
-                color: "grey",
-                ml: 2,
-              }}
-            >
-              Online
-            </Typography>
-          </Stack>
-        </Box>
+            Online
+          </Typography>
+        </Stack>
       </Box>
     </Paper>
   );
