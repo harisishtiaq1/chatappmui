@@ -143,7 +143,7 @@ function Chat() {
         </Box>
       </Box>
       <Divider sx={{ backgroundColor: "grey", height: "1px", mt: 3 }} />
-      <Box>
+      <Box sx={{ display: "none" }}>
         <Divider sx={{ backgroundColor: "grey", height: "1px" }} />
         <Stack direction="row">
           <IconButton>
