@@ -29,7 +29,7 @@ const thumbStyle = {
 function SideBar() {
   const [showMessageComponent, setShowMessageComponent] = useState(true);
   const [showContactsComponent, setShowContactsComponent] = useState(false);
-  const [progressValue, setProgressValue] = useState(0);
+  const [progressValue, setProgressValue] = useState(50);
 
   const handleToggleMessageComponent = () => {
     setShowMessageComponent(true);
