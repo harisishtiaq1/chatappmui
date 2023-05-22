@@ -33,7 +33,7 @@ function Navbar() {
   const id = open ? "simple-popover" : undefined;
   return (
     <>
-      <AppBar sx={{ backgroundColor: "transparent" }}>
+      <AppBar sx={{ backgroundColor: "white" }}>
         <Toolbar
           sx={{
             display: "flex",
