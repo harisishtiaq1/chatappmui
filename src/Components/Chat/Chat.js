@@ -89,7 +89,6 @@ function Chat() {
                 borderRadius: "50%",
                 ml: 2,
                 mt: 0.5,
-                //   ml: 10,
               }}
             >
               <CallIcon />
@@ -105,7 +104,6 @@ function Chat() {
                 borderRadius: "50%",
                 ml: 2,
                 mt: 0.5,
-                //   ml: 10,
               }}
             >
               <VideocamIcon />
@@ -120,7 +118,6 @@ function Chat() {
               borderRadius: "50%",
               ml: 2,
               mt: 0.5,
-              //   ml: 10,
             }}
           >
             <StarOutlineIcon />
@@ -135,7 +132,6 @@ function Chat() {
                 borderRadius: "50%",
                 ml: 2,
                 mt: 0.5,
-                //   ml: 10,
               }}
             >
               <MoreVertIcon />

@@ -70,7 +70,6 @@ function Navbar() {
                 borderRadius: "50%",
                 ml: 2,
                 mt: 0.5,
-                //   ml: 10,
               }}
             >
               <TranslateIcon />
@@ -84,7 +83,6 @@ function Navbar() {
                 borderRadius: "50%",
                 ml: 2,
                 mt: 0.5,
-                //   ml: 10,
               }}
             >
               <NotificationsIcon />
@@ -98,7 +96,6 @@ function Navbar() {
                 borderRadius: "50%",
                 ml: 2,
                 mt: 0.5,
-                //   ml: 10,
               }}
             >
               <MailIcon />
