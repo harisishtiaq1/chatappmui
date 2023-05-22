@@ -19,6 +19,7 @@ import CallIcon from "@mui/icons-material/Call";
 import person4 from "../Assets/A10.jpg";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import { styled } from "@mui/material/styles";
+import Messages from "./Messages";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -143,6 +144,7 @@ function Chat() {
         </Box>
       </Box>
       <Divider sx={{ backgroundColor: "grey", height: "1px", mt: 3 }} />
+      <Messages />
       <Box sx={{ display: "none" }}>
         <Divider sx={{ backgroundColor: "grey", height: "1px" }} />
         <Stack direction="row">
