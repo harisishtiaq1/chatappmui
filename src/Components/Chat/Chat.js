@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import React from "react";
+import React, { useState } from "react";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import CallIcon from "@mui/icons-material/Call";
@@ -49,8 +49,9 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 function Chat() {
+  const [room,setRoom]=useState("")
   return (
-    <Paper sx={{ borderRadius: "16px", padding: 2, ml: 4 }}>
+    <Paper sx={{ borderRadius: "16px", padding: 2,width:'900px' }}>
       <Box
         sx={{
           display: "flex",
@@ -143,10 +144,10 @@ function Chat() {
           </Tooltip>
         </Box>
       </Box>
-      <Divider sx={{ backgroundColor: "grey", height: "1px", mt: 3 }} />
-      <Messages />
+      <Divider sx={{ backgroundColor: "grey", mt: 3 }} />
+      <Messages room={room} />
       <Box sx={{ display: "none" }}>
-        <Divider sx={{ backgroundColor: "grey", height: "1px" }} />
+        <Divider sx={{ backgroundColor: "grey"}} />
         <Stack direction="row">
           <IconButton>
             <AttachFileIcon />
