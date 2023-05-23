@@ -248,7 +248,7 @@ function Messages({ room }) {
                 sx={{
                   padding: 2,
                   backgroundColor: "blueviolet",
-                  borderRadius: "10px",
+                  borderRadius: "16px 0px 0px 16px",
                   "&:hover": {
                     backgroundColor: "blueViolet",
                   },
@@ -264,7 +264,7 @@ function Messages({ room }) {
                 sx={{
                   padding: 2,
                   backgroundColor: "black",
-                  borderRadius: "10px",
+                  borderRadius: "16px",
                   "&:hover": {
                     backgroundColor: "black",
                   },

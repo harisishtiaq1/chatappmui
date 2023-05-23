@@ -72,7 +72,7 @@ function Messages() {
           </StyledBadge>
           <Stack direction="column">
             <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Jubina Chawla
+              Crema Devs
             </Typography>
             <Typography
               sx={{
@@ -96,7 +96,103 @@ function Messages() {
           </StyledBadge>
           <Stack direction="column">
             <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Jubina Chawla
+              Chris Crains
+            </Typography>
+            <Typography
+              sx={{
+                ml: 2,
+                fontWeight: "100",
+                color: "grey",
+                fontSize: "13px",
+              }}
+            >
+              OK,will do it
+            </Typography>
+          </Stack>
+        </Box>
+        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
+          <StyledBadge
+            overlap="circular"
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            variant="dot"
+          >
+            <Avatar alt="Remy Sharp" src={person3} />
+          </StyledBadge>
+          <Stack direction="column">
+            <Typography sx={{ fontWeight: "600", ml: 2 }}>
+              Rohita Sharma
+            </Typography>
+            <Typography
+              sx={{
+                ml: 2,
+                fontWeight: "100",
+                color: "grey",
+                fontSize: "13px",
+              }}
+            >
+              OK,will do it
+            </Typography>
+          </Stack>
+        </Box>
+        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
+          <StyledBadge
+            overlap="circular"
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            variant="dot"
+          >
+            <Avatar alt="Remy Sharp" src={person4} />
+          </StyledBadge>
+          <Stack direction="column">
+            <Typography sx={{ fontWeight: "600", ml: 2 }}>
+              Parth Aulins
+            </Typography>
+            <Typography
+              sx={{
+                ml: 2,
+                fontWeight: "100",
+                color: "grey",
+                fontSize: "13px",
+              }}
+            >
+              OK,will do it
+            </Typography>
+          </Stack>
+        </Box>
+        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
+          <StyledBadge
+            overlap="circular"
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            variant="dot"
+          >
+            <Avatar alt="Remy Sharp" src={person3} />
+          </StyledBadge>
+          <Stack direction="column">
+            <Typography sx={{ fontWeight: "600", ml: 2 }}>
+              Rahul Bose
+            </Typography>
+            <Typography
+              sx={{
+                ml: 2,
+                fontWeight: "100",
+                color: "grey",
+                fontSize: "13px",
+              }}
+            >
+              OK,will do it
+            </Typography>
+          </Stack>
+        </Box>
+        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
+          <StyledBadge
+            overlap="circular"
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            variant="dot"
+          >
+            <Avatar alt="Remy Sharp" src={person4} />
+          </StyledBadge>
+          <Stack direction="column">
+            <Typography sx={{ fontWeight: "600", ml: 2 }}>
+              Nick Taylor
             </Typography>
             <Typography
               sx={{
@@ -120,103 +216,7 @@ function Messages() {
           </StyledBadge>
           <Stack direction="column">
             <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Jubina Chawla
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              OK,will do it
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person2} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Jubina Chawla
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              OK,will do it
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person2} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Jubina Chawla
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              OK,will do it
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person2} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Jubina Chawla
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              OK,will do it
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person2} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Jubina Chawla
+              Nikita Sharma
             </Typography>
             <Typography
               sx={{

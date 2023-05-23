@@ -127,7 +127,7 @@ function Chat() {
           >
             <StarOutlineIcon />
           </IconButton>
-          <Tooltip title="Menu" placement="top">
+          <Tooltip title="More" placement="top">
             <IconButton
               sx={{
                 backgroundColor: "#F4F7FE",
