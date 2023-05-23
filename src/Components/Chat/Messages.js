@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Divider,
   IconButton,
@@ -8,7 +7,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { db, auth } from "../../firebase";
 import {
   collection,
@@ -201,7 +199,7 @@ function Messages({ room }) {
             </>
           ))}
       </Scrollbars>
-      <Divider sx={{ backgroundColor: "grey"}} />
+      <Divider sx={{ backgroundColor: "grey" }} />
 
       <form onSubmit={handleSubmit}>
         <Stack direction="row" sx={{ bottom: 0, width: "100%" }}>
@@ -211,7 +209,8 @@ function Messages({ room }) {
               display: "flex",
               backgroundColor: "black",
               color: "white",
-              borderRadius: "10px",mt:1
+              borderRadius: "10px",
+              mt: 1,
             }}
           >
             <IconButton sx={{ color: "white" }}>
