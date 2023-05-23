@@ -51,7 +51,12 @@ function SideBar() {
           </Typography>
         </Box>
         <Grid container sx={{ mt: 2 }}>
-          <Grid item  md={3} lg={3} sx={{display:{xs:"none",sm:"none",md:'block'}}}>
+          <Grid
+            item
+            md={3}
+            lg={3}
+            sx={{ display: { xs: "none", sm: "none", md: "block" } }}
+          >
             <Paper sx={{ borderRadius: "16px", width: "280px", padding: 1 }}>
               <Stack direction="row">
                 <Box

@@ -106,7 +106,7 @@ function Messages() {
                 fontSize: "13px",
               }}
             >
-              OK,will do it
+              cheers!
             </Typography>
           </Stack>
         </Box>
@@ -130,7 +130,7 @@ function Messages() {
                 fontSize: "13px",
               }}
             >
-              OK,will do it
+              What are you upto
             </Typography>
           </Stack>
         </Box>
@@ -154,7 +154,7 @@ function Messages() {
                 fontSize: "13px",
               }}
             >
-              OK,will do it
+              No worries!
             </Typography>
           </Stack>
         </Box>
@@ -178,7 +178,7 @@ function Messages() {
                 fontSize: "13px",
               }}
             >
-              OK,will do it
+              Cheers!
             </Typography>
           </Stack>
         </Box>
@@ -202,7 +202,7 @@ function Messages() {
                 fontSize: "13px",
               }}
             >
-              OK,will do it
+              For What?
             </Typography>
           </Stack>
         </Box>
@@ -226,7 +226,7 @@ function Messages() {
                 fontSize: "13px",
               }}
             >
-              OK,will do it
+              HI!
             </Typography>
           </Stack>
         </Box>

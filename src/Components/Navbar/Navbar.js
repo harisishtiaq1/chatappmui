@@ -168,16 +168,12 @@ function Navbar() {
           horizontal: "center",
         }}
       >
-        <List sx={{padding:"10px"}}>
-          <ListItemText sx={{cursor:'pointer'}}>
-            <Typography>
-              My Profile
-            </Typography>
+        <List sx={{ padding: "10px" }}>
+          <ListItemText sx={{ cursor: "pointer" }}>
+            <Typography>My Profile</Typography>
           </ListItemText>
-          <ListItemText sx={{cursor:'pointer'}}>
-            <Typography>
-              Log Out
-            </Typography>
+          <ListItemText sx={{ cursor: "pointer" }}>
+            <Typography>Log Out</Typography>
           </ListItemText>
         </List>
       </Popover>

@@ -25,10 +25,10 @@ function Contacts() {
           <Avatar alt="Remy Sharp" src={person3} />
           <Stack direction="column">
             <Typography sx={{ fontWeight: "500", ml: 2, fontSize: "16px" }}>
-              Jubina
+              Crema Devs
             </Typography>
             <Typography sx={{ ml: 2, fontSize: "14px", color: "grey" }}>
-              @jubina.1
+              @johnson.mark
             </Typography>
           </Stack>
         </Box>
@@ -36,10 +36,10 @@ function Contacts() {
           <Avatar alt="Remy Sharp" src={person4} />
           <Stack direction="column">
             <Typography sx={{ fontWeight: "500", ml: 2, fontSize: "16px" }}>
-              Jubina
+              Shane Lee
             </Typography>
             <Typography sx={{ ml: 2, fontSize: "14px", color: "grey" }}>
-              @jubina.1
+              @lee.shane
             </Typography>
           </Stack>
         </Box>
@@ -47,10 +47,10 @@ function Contacts() {
           <Avatar alt="Remy Sharp" src={person2} />
           <Stack direction="column">
             <Typography sx={{ fontWeight: "500", ml: 2, fontSize: "16px" }}>
-              Jubina
+              Chris Crains
             </Typography>
             <Typography sx={{ ml: 2, fontSize: "14px", color: "grey" }}>
-              @jubina.1
+              @chris.crains
             </Typography>
           </Stack>
         </Box>
@@ -58,10 +58,10 @@ function Contacts() {
           <Avatar alt="Remy Sharp" src={person3} />
           <Stack direction="column">
             <Typography sx={{ fontWeight: "500", ml: 2, fontSize: "16px" }}>
-              Jubina
+              Jonathan Trott
             </Typography>
             <Typography sx={{ ml: 2, fontSize: "14px", color: "grey" }}>
-              @jubina.1
+              @trott.johnson
             </Typography>
           </Stack>
         </Box>
@@ -69,10 +69,10 @@ function Contacts() {
           <Avatar alt="Remy Sharp" src={person4} />
           <Stack direction="column">
             <Typography sx={{ fontWeight: "500", ml: 2, fontSize: "16px" }}>
-              Jubina
+              Rohita Sharma
             </Typography>
             <Typography sx={{ ml: 2, fontSize: "14px", color: "grey" }}>
-              @jubina.1
+              @sharma.rohita
             </Typography>
           </Stack>
         </Box>
@@ -80,10 +80,10 @@ function Contacts() {
           <Avatar alt="Remy Sharp" src={person2} />
           <Stack direction="column">
             <Typography sx={{ fontWeight: "500", ml: 2, fontSize: "16px" }}>
-              Jubina
+              Mark Lee
             </Typography>
             <Typography sx={{ ml: 2, fontSize: "14px", color: "grey" }}>
-              @jubina.1
+              @lee.1
             </Typography>
           </Stack>
         </Box>
@@ -91,10 +91,10 @@ function Contacts() {
           <Avatar alt="Remy Sharp" src={person3} />
           <Stack direction="column">
             <Typography sx={{ fontWeight: "500", ml: 2, fontSize: "16px" }}>
-              Jubina
+              Saina Williams
             </Typography>
             <Typography sx={{ ml: 2, fontSize: "14px", color: "grey" }}>
-              @jubina.1
+              @williams.saina
             </Typography>
           </Stack>
         </Box>

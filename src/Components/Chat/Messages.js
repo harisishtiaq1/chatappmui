@@ -18,7 +18,7 @@ import {
   orderBy,
 } from "firebase/firestore";
 import image from "../Assets/A10.jpg";
-import image2 from "../Assets/A11.jpg"
+import image2 from "../Assets/A11.jpg";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import SendIcon from "@mui/icons-material/Send";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
@@ -211,7 +211,7 @@ function Messages({ room }) {
             </>
           ))}
       </Scrollbars>
-      <Divider sx={{ backgroundColor: "grey",mt:2 }} />
+      <Divider sx={{ backgroundColor: "grey", mt: 2 }} />
 
       <form onSubmit={handleSubmit}>
         <Stack direction="row" sx={{ bottom: 0, width: "100%" }}>
