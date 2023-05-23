@@ -49,9 +49,9 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 function Chat() {
-  const [room,setRoom]=useState("")
+  const [room, setRoom] = useState("");
   return (
-    <Paper sx={{ borderRadius: "16px", padding: 2,width:'900px' }}>
+    <Paper sx={{ borderRadius: "16px", padding: 2, width: "900px" }}>
       <Box
         sx={{
           display: "flex",
@@ -147,7 +147,7 @@ function Chat() {
       <Divider sx={{ backgroundColor: "grey", mt: 3 }} />
       <Messages room={room} />
       <Box sx={{ display: "none" }}>
-        <Divider sx={{ backgroundColor: "grey"}} />
+        <Divider sx={{ backgroundColor: "grey" }} />
         <Stack direction="row">
           <IconButton>
             <AttachFileIcon />

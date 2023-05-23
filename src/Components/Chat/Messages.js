@@ -115,7 +115,7 @@ function Messages({ room }) {
                     <Box
                       sx={{
                         border: "1px solid rgb(238, 238, 238)",
-                        borderRadius: "16px 0px 0px 16px",
+                        borderRadius: "16px 0px 10px 16px",
                         display: "flex",
                         backgroundColor: "rgba(10, 143, 220, 0.1)",
                         color: "rgb(107, 114, 128)",
@@ -156,43 +156,55 @@ function Messages({ room }) {
                   key={message.id}
                   sx={{
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: "row",
                   }}
                 >
                   <Box
+                    component="img"
+                    src={image}
                     sx={{
-                      borderRadius: "10px 10px 10px 10px",
-                      display: "flex",
-                      flexDirection: "row",
-                      margin: "10px",
-                      backgroundColor: "black",
-                      color: "white",
-                      width: "fit-content",
-                      justifyContent: "flex-end",
-                      position: "relative",
+                      width: "30px",
+                      height: "30px",
+                      borderRadius: "50%",
+                      mt: 4,
+                      ml: 1,
                     }}
-                  >
-                    <Typography
-                      variant="h6"
-                      component="h6"
-                      sx={{
-                        fontSize: "16px",
-                        ml: 1,
-                        mr: 1,
-                        mt: 2,
-                        textTransform: "capitalize",
-                        height: "40px",
-                        fontWeight: "400",
-                        width: "fit-content",
-                      }}
-                    >
-                      {message.text}
-                    </Typography>
+                  />
+                  <Box sx={{ display: "flex", flexDirection: "column", ml: 1 }}>
                     {message.createdAt && (
                       <Typography sx={{ mt: 4, height: "20px", width: 90 }}>
                         {message.createdAt.toDate().toLocaleTimeString()}
                       </Typography>
                     )}
+                    <Box
+                      sx={{
+                        border: "1px solid rgb(238, 238, 238)",
+                        borderRadius: "0px 16px 16px 16px",
+                        display: "flex",
+                        borderTopRightRadius: "16px",
+                        borderBottomRightRadius: "16px",
+                        width: "fit-content",
+                        backgroundColor: "rgb(255, 255, 255)",
+                        // padding: "8px 12px",
+                      }}
+                    >
+                      <Typography
+                        variant="h6"
+                        component="h6"
+                        sx={{
+                          fontSize: "14px",
+                          ml: 1,
+                          mr: 1,
+                          mt: 2,
+                          textTransform: "capitalize",
+                          height: "40px",
+                          fontWeight: "400",
+                          width: "fit-content",
+                        }}
+                      >
+                        {message.text}
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
               )}
