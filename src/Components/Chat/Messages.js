@@ -185,7 +185,6 @@ function Messages({ room }) {
                         borderBottomRightRadius: "16px",
                         width: "fit-content",
                         backgroundColor: "rgb(255, 255, 255)",
-                        // padding: "8px 12px",
                       }}
                     >
                       <Typography
