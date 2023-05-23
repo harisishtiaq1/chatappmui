@@ -154,9 +154,9 @@ function Chat() {
           </IconButton>
           <TextField
             InputProps={{
-              style: { borderRadius: "10px", height: "40px" },
+              style: { borderRadius: "40px", height: "40px" },
             }}
-            sx={{ width: "700px", borderRadius: "16px", padding: "12px 14px" }}
+            sx={{ width: "700px", borderRadius: "40px", padding: "12px 16px" }}
             placeholder="Type Something"
           />
           <IconButton
