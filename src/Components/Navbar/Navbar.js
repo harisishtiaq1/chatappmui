@@ -3,6 +3,8 @@ import {
   Box,
   IconButton,
   InputBase,
+  List,
+  ListItemText,
   Paper,
   Popover,
   Stack,
@@ -166,9 +168,18 @@ function Navbar() {
           horizontal: "center",
         }}
       >
-        <Typography style={{ padding: 10 }}>
-          This is the content of the popover.
-        </Typography>
+        <List sx={{padding:"10px"}}>
+          <ListItemText sx={{cursor:'pointer'}}>
+            <Typography>
+              My Profile
+            </Typography>
+          </ListItemText>
+          <ListItemText sx={{cursor:'pointer'}}>
+            <Typography>
+              Log Out
+            </Typography>
+          </ListItemText>
+        </List>
       </Popover>
     </>
   );

@@ -18,6 +18,7 @@ import {
   orderBy,
 } from "firebase/firestore";
 import image from "../Assets/A10.jpg";
+import image2 from "../Assets/A11.jpg"
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import SendIcon from "@mui/icons-material/Send";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
@@ -81,7 +82,7 @@ function Messages({ room }) {
       }}
     >
       <Scrollbars
-        style={{ height: 300 }}
+        style={{ height: 285 }}
         autoHide={true}
         renderThumbVertical={({ style, ...props }) => (
           <div {...props} style={{ ...style, ...thumbStyle }} />
@@ -161,7 +162,7 @@ function Messages({ room }) {
                 >
                   <Box
                     component="img"
-                    src={image}
+                    src={image2}
                     sx={{
                       width: "30px",
                       height: "30px",
@@ -210,7 +211,7 @@ function Messages({ room }) {
             </>
           ))}
       </Scrollbars>
-      <Divider sx={{ backgroundColor: "grey" }} />
+      <Divider sx={{ backgroundColor: "grey",mt:2 }} />
 
       <form onSubmit={handleSubmit}>
         <Stack direction="row" sx={{ bottom: 0, width: "100%" }}>
