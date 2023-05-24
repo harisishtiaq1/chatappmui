@@ -2,7 +2,6 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -14,9 +13,11 @@ import { Input } from "@mui/material";
 import { doc, setDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
+import { Link, useNavigate } from "react-router-dom";
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+  const navigate=useNavigate()
   const [err, setErr] = React.useState(false);
   const [displayName, setDisplayName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -54,6 +55,7 @@ export default function SignUp() {
               photoURL: downloadURL,
             });
             await setDoc(doc(db, "userChats", res.user.uid), {});
+            navigate("/")
           });
         }
       );
@@ -133,7 +135,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link to="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

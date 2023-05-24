@@ -2,25 +2,31 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
 
 const defaultTheme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
+  const nevigate = useNavigate();
+  const [err, setErr] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      nevigate("/");
+    } catch (err) {
+      setErr(true);
+    }
   };
 
   return (
@@ -35,6 +41,7 @@ export default function SignIn() {
             alignItems: "center",
           }}
         >
+          {err && <Typography>Something went Wrong</Typography>}
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -48,25 +55,20 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="email"
               label="Email Address"
-              name="email"
-              autoComplete="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               autoFocus
             />
             <TextField
               margin="normal"
               required
               fullWidth
-              name="password"
               label="Password"
               type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <Button
               type="submit"
@@ -78,7 +80,7 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link to="/register" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

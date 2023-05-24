@@ -11,16 +11,19 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
 import Logo from "../Assets/download.png";
 import TranslateIcon from "@mui/icons-material/Translate";
-import person1 from "../Assets/A10.jpg";
 import SideBar from "../SideBar/SideBar";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
+import { AuthContext } from "../../Context/AuthContext";
 function Navbar() {
+  const { currentUser } = useContext(AuthContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -105,7 +108,7 @@ function Navbar() {
 
             <Box
               component="img"
-              src={person1}
+              src={currentUser.photoURL}
               sx={{
                 width: "40px",
                 height: "40px",
@@ -124,7 +127,7 @@ function Navbar() {
                   ml: 2,
                 }}
               >
-                John Alex
+                {currentUser.displayName}
               </Typography>
               <Typography
                 sx={{
@@ -172,7 +175,10 @@ function Navbar() {
           <ListItemText sx={{ cursor: "pointer" }}>
             <Typography>My Profile</Typography>
           </ListItemText>
-          <ListItemText sx={{ cursor: "pointer" }}>
+          <ListItemText
+            onClick={() => signOut(auth)}
+            sx={{ cursor: "pointer" }}
+          >
             <Typography>Log Out</Typography>
           </ListItemText>
         </List>

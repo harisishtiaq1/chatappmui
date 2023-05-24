@@ -2,7 +2,6 @@ import {
   Box,
   Grid,
   IconButton,
-  InputBase,
   LinearProgress,
   Paper,
   Stack,
@@ -10,13 +9,13 @@ import {
 } from "@mui/material";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import MailIcon from "@mui/icons-material/Mail";
-import person1 from "../Assets/A11.jpg";
 import Scrollbars from "react-custom-scrollbars";
-import SearchIcon from "@mui/icons-material/Search";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Chat from "../Chat/Chat";
 import Messages from "./Messages";
 import Contacts from "./Contacts";
+import Search from "./Search";
+import { AuthContext } from "../../Context/AuthContext";
 
 const thumbStyle = {
   backgroundColor: "#888",
@@ -27,6 +26,7 @@ const thumbStyle = {
 };
 
 function SideBar() {
+  const {currentUser}=useContext(AuthContext)
   const [showMessageComponent, setShowMessageComponent] = useState(true);
   const [showContactsComponent, setShowContactsComponent] = useState(false);
   const [progressValue, setProgressValue] = useState(50);
@@ -61,7 +61,7 @@ function SideBar() {
               <Stack direction="row">
                 <Box
                   component="img"
-                  src={person1}
+                  src={currentUser.photoURL}
                   sx={{
                     width: "45px",
                     height: "45px",
@@ -74,7 +74,7 @@ function SideBar() {
                   <Typography
                     sx={{ fontWeight: "600", mt: 2, ml: 2, fontSize: "16px" }}
                   >
-                    John Alex
+                    {currentUser.displayName}
                   </Typography>
                   <Typography
                     sx={{
@@ -88,24 +88,7 @@ function SideBar() {
                   </Typography>
                 </Stack>
               </Stack>
-              <Paper
-                sx={{
-                  width: "210px",
-                  height: "30px",
-                  backgroundColor: "#F4F7FE",
-                  borderRadius: "40px",
-                  padding: "8px 42px 8px 20px",
-                  display: "flex",
-                  alignItems: "center",
-                  flexDirection: "row",
-                  mt: 2,
-                }}
-              >
-                <InputBase sx={{ ml: 2 }} placeholder="Search.." />
-                <IconButton>
-                  <SearchIcon fontSize="small" />
-                </IconButton>
-              </Paper>
+              <Search/>
               <Stack
                 direction="row"
                 sx={{

@@ -1,9 +1,9 @@
 import { Avatar, Badge, Box, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
-import person2 from "../Assets/A10.jpg";
-import person3 from "../Assets/A1.jpg";
-import person4 from "../Assets/A12.jpg";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../firebase";
+import { AuthContext } from "../../Context/AuthContext";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -32,204 +32,52 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 function Messages() {
+  const [chats, setChats] = useState([]);
+  const { currentUser } = useContext(AuthContext);
+  useEffect(() => {
+    const getChats = () => {
+      const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
+        setChats(doc.data());
+      });
+      return () => {
+        unsub();
+      };
+    };
+    currentUser.uid && getChats();
+  }, [currentUser.uid]);
+  console.log(Object.entries(chats));
   return (
     <Box>
       <Typography sx={{ fontWeight: "700", ml: 2, fontSize: "16px" }}>
         Connections
       </Typography>
       <Box sx={{ mt: 3, ml: 3 }}>
-        <Box sx={{ display: "flex", cursor: "pointer" }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person3} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Jubina Chawla
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
+        {Object.entries(chats)?.map((chat) => (
+          <Box key={chat[0]} sx={{ display: "flex", cursor: "pointer" }}>
+            <StyledBadge
+              overlap="circular"
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              variant="dot"
             >
-              OK,will do it
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person2} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Crema Devs
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              OK,will do it
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person4} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Chris Crains
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              cheers!
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person3} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Rohita Sharma
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              What are you upto
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person4} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Parth Aulins
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              No worries!
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person3} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Rahul Bose
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              Cheers!
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person4} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Nick Taylor
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              For What?
-            </Typography>
-          </Stack>
-        </Box>
-        <Box sx={{ display: "flex", cursor: "pointer", mt: 2 }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={person2} />
-          </StyledBadge>
-          <Stack direction="column">
-            <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Nikita Sharma
-            </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              HI!
-            </Typography>
-          </Stack>
-        </Box>
+              <Avatar alt="Remy Sharp" src={chat[1].userInfo.photoURL} />
+            </StyledBadge>
+            <Stack direction="column">
+              <Typography sx={{ fontWeight: "600", ml: 2 }}>
+                {chat[1].userInfo.displayName}
+              </Typography>
+              <Typography
+                sx={{
+                  ml: 2,
+                  fontWeight: "100",
+                  color: "grey",
+                  fontSize: "13px",
+                }}
+              >
+                {chat[1].userInfo.lastMessage?.text}
+              </Typography>
+            </Stack>
+          </Box>
+        ))}
       </Box>
     </Box>
   );

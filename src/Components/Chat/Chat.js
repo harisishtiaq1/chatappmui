@@ -12,14 +12,14 @@ import {
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import CallIcon from "@mui/icons-material/Call";
-import person4 from "../Assets/A10.jpg";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import { styled } from "@mui/material/styles";
 import Messages from "./Messages";
+import { AuthContext } from "../../Context/AuthContext";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -49,6 +49,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 function Chat() {
+  const { currentUser } = useContext(AuthContext);
   const [room, setRoom] = useState("");
   return (
     <Paper sx={{ borderRadius: "16px", padding: 2, width: "900px" }}>
@@ -65,11 +66,11 @@ function Chat() {
             anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
             variant="dot"
           >
-            <Avatar alt="Remy Sharp" src={person4} />
+            <Avatar alt="Remy Sharp" src={currentUser.photoURL} />
           </StyledBadge>
           <Stack direction="column">
             <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              Jubina Chawla
+              {currentUser.displayName}
             </Typography>
             <Typography
               sx={{
