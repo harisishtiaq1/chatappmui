@@ -4,7 +4,7 @@ import SignUp from "../Signup/Signup";
 import SignIn from "../../Signin/Signin";
 
 function Layout() {
-  return <SignIn/>;
+  return <SignUp/>;
 }
 
 export default Layout;
