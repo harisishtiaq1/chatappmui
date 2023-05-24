@@ -1,7 +1,8 @@
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import "./App.css";
-import Layout from "./Components/Layout/Layout";
+import Navbar from "./Components/Navbar/Navbar"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const theme = createTheme({
@@ -11,7 +12,13 @@ function App() {
   });
   return (
     <ThemeProvider theme={theme}>
-      <Layout />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Navbar />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
