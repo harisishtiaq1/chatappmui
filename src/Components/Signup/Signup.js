@@ -7,10 +7,11 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import { Input } from "@mui/material";
+import { doc, setDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
 const defaultTheme = createTheme();
@@ -31,6 +32,7 @@ export default function SignUp() {
 
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
+      console.log("res", res);
 
       const storageRef = ref(storage, displayName);
 
@@ -41,8 +43,18 @@ export default function SignUp() {
           setErr(true);
         },
         () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log("File available at", downloadURL);
+          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+            await updateProfile(res.user, {
+              displayName,
+              photoURL: downloadURL,
+            });
+            await setDoc(doc(db, "users", res.user.uid), {
+              uid: res.user.uid,
+              displayName,
+              email,
+              photoURL: downloadURL,
+            });
+            await setDoc(doc(db,"userChats",res.user.uid),{})
           });
         }
       );
@@ -50,7 +62,6 @@ export default function SignUp() {
       setErr(true);
     }
   };
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
