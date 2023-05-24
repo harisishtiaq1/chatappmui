@@ -29,7 +29,6 @@ export default function SignUp() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
       console.log("res", res);
