@@ -54,7 +54,7 @@ export default function SignUp() {
               email,
               photoURL: downloadURL,
             });
-            await setDoc(doc(db,"userChats",res.user.uid),{})
+            await setDoc(doc(db, "userChats", res.user.uid), {});
           });
         }
       );
