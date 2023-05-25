@@ -72,16 +72,6 @@ function Chat() {
             <Typography sx={{ fontWeight: "600", ml: 2 }}>
               {data.user?.displayName}
             </Typography>
-            <Typography
-              sx={{
-                ml: 2,
-                fontWeight: "100",
-                color: "grey",
-                fontSize: "13px",
-              }}
-            >
-              Online
-            </Typography>
           </Stack>
         </Box>
         <Box>

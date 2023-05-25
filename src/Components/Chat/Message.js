@@ -1,15 +1,20 @@
 import { Box, Typography } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { ChatContext } from "../../Context/ChatContext";
 
 function Message({ message }) {
-    const {currentUser}=useContext(AuthContext)
-    const {data}=useContext(ChatContext)
-    console.log(message)
+  const { currentUser } = useContext(AuthContext);
+  const { data } = useContext(ChatContext);
+  console.log(message);
+  const ref =useRef();
+
+  useEffect(()=>{
+ref.current?.scrollIntoView({behavior:"smooth"})
+  },[message])
   return (
     <Box
-      // key={message.id}
+      key={message.id}
       sx={{
         display: "flex",
         flexDirection: "row",
@@ -18,17 +23,17 @@ function Message({ message }) {
       }}
     >
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        {/* {message.createdAt && (
-                    <Typography
-                      sx={{
-                        mt: 4,
-                        height: "20px",
-                        color: "rgb(107, 114, 128)",
-                      }}
-                    >
-                      {message.createdAt.toDate().toLocaleTimeString()}
-                    </Typography>
-                  )} */}
+        {message.createdAt && (
+          <Typography
+            sx={{
+              mt: 4,
+              height: "20px",
+              color: "rgb(107, 114, 128)",
+            }}
+          >
+            {message.createdAt.toDate().toLocaleTimeString()}
+          </Typography>
+        )}
         <Box
           sx={{
             border: "1px solid rgb(238, 238, 238)",
@@ -52,13 +57,17 @@ function Message({ message }) {
               width: "fit-content",
             }}
           >
-            {/* {message.text} */}
+            {message.text}
           </Typography>
         </Box>
       </Box>
       <Box
         component="img"
-        //   src={image}
+        src={
+          message.senderId === currentUser.uid
+            ? currentUser.photoURL
+            : data.user.photoURL
+        }
         sx={{
           width: "30px",
           height: "30px",

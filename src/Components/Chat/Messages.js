@@ -1,12 +1,6 @@
-import {
-  Box,
-  Divider,
-} from "@mui/material";
-import { db} from "../../firebase";
-import {
-  onSnapshot,
-  doc,
-} from "firebase/firestore";
+import { Box, Divider } from "@mui/material";
+import { db } from "../../firebase";
+import { onSnapshot, doc } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import Scrollbars from "react-custom-scrollbars";
 import Input from "./Input";
@@ -20,7 +14,7 @@ const thumbStyle = {
   height: "5px",
 };
 
-function Messages({ room }) {
+function Messages() {
   const [messages, setMessages] = useState([]);
   const { data } = useContext(ChatContext);
 
@@ -46,10 +40,9 @@ function Messages({ room }) {
           <div {...props} style={{ ...style, ...thumbStyle }} />
         )}
       >
-        {messages &&
-          messages.map(message => (
-            <Message message={message} key={message.id}/>
-          ))}
+        {messages.map((message) => (
+          <Message message={message} key={message.id} />
+        ))}
       </Scrollbars>
       <Divider sx={{ backgroundColor: "grey", mt: 2 }} />
       <Input />
