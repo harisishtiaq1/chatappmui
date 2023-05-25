@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
+import { ChatContext } from "../../Context/ChatContext";
 import { AuthContext } from "../../Context/AuthContext";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -34,6 +35,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 function Messages() {
   const [chats, setChats] = useState([]);
   const { currentUser } = useContext(AuthContext);
+  const {dispatch}=useContext(ChatContext)
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
@@ -46,14 +48,18 @@ function Messages() {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
   console.log(Object.entries(chats));
+
+  const handleSelect=(u)=>{
+    dispatch({type:"CHANGE_USER",payload:u})
+  }
   return (
     <Box>
       <Typography sx={{ fontWeight: "700", ml: 2, fontSize: "16px" }}>
         Connections
       </Typography>
-      <Box sx={{ mt: 3, ml: 3 }}>
+      <Box sx={{ mt: 4, ml: 3 }}>
         {Object.entries(chats)?.map((chat) => (
-          <Box key={chat[0]} sx={{ display: "flex", cursor: "pointer" }}>
+          <Box onClick={()=>handleSelect(chat[1].userInfo)} key={chat[0]} sx={{ display: "flex", cursor: "pointer",mt:2 }}>
             <StyledBadge
               overlap="circular"
               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
