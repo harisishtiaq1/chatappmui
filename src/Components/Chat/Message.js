@@ -7,11 +7,11 @@ function Message({ message }) {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
   console.log(message);
-  const ref =useRef();
+  const ref = useRef();
 
-  useEffect(()=>{
-ref.current?.scrollIntoView({behavior:"smooth"})
-  },[message])
+  useEffect(() => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  }, [message]);
   return (
     <Box
       key={message.id}
@@ -20,9 +20,10 @@ ref.current?.scrollIntoView({behavior:"smooth"})
         flexDirection: "row",
         alignItems: "flex-end",
         justifyContent: "flex-end",
+        mt: 3,
       }}
     >
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box ref={ref} sx={{ display: "flex", flexDirection: "column" }}>
         {message.createdAt && (
           <Typography
             sx={{

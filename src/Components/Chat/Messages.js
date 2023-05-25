@@ -19,11 +19,13 @@ function Messages() {
   const { data } = useContext(ChatContext);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
+    const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
       doc.exists() && setMessages(doc.data().messages);
     });
 
-    return () => unsubscribe();
+    return () => {
+      unSub()
+    };
   }, [data.chatId]);
 
   return (
