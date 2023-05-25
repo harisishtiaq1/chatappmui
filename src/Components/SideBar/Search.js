@@ -51,7 +51,6 @@ function Search() {
         : user.uid + currentUser.uid;
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
-
       if (!res.exists()) {
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
@@ -59,7 +58,7 @@ function Search() {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
             displayName: user.displayName,
-            photoURL: user.photoURL
+            photoURL: user.photoURL,
           },
           [combinedId + ".date"]: serverTimestamp(),
         });
@@ -110,7 +109,7 @@ function Search() {
             </Typography>
           </Stack>
         </Box>
-      ) }
+      )}
     </>
   );
 }

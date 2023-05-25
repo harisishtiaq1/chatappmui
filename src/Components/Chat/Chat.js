@@ -19,7 +19,7 @@ import CallIcon from "@mui/icons-material/Call";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import { styled } from "@mui/material/styles";
 import Messages from "./Messages";
-import { ChatContext, data } from "../../Context/ChatContext";
+import { ChatContext} from "../../Context/ChatContext";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -49,7 +49,6 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 function Chat() {
-  // const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
   return (
     <Paper sx={{ borderRadius: "16px", padding: 2, width: "900px" }}>

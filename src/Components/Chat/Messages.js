@@ -24,7 +24,7 @@ function Messages() {
     });
 
     return () => {
-      unSub()
+      unSub();
     };
   }, [data.chatId]);
 

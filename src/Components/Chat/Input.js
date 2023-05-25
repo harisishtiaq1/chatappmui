@@ -109,7 +109,6 @@ function Input() {
         <IconButton
           sx={{
             padding: 2,
-            backgroundColor: "blueviolet",
             color: "white",
           }}
           variant="contained"

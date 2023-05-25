@@ -58,38 +58,36 @@ function Messages() {
         Connections
       </Typography>
       <Box sx={{ mt: 4, ml: 3 }}>
-        {Object.entries(chats)
-          ?.sort((a, b) => b[1].date - a[1].date)
-          .map((chat) => (
-            <Box
-              onClick={() => handleSelect(chat[1].userInfo)}
-              key={chat[0]}
-              sx={{ display: "flex", cursor: "pointer", mt: 2 }}
+        {Object.entries(chats)?.map((chat) => (
+          <Box
+            onClick={() => handleSelect(chat[1].userInfo)}
+            key={chat[0]}
+            sx={{ display: "flex", cursor: "pointer", mt: 2 }}
+          >
+            <StyledBadge
+              overlap="circular"
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              variant="dot"
             >
-              <StyledBadge
-                overlap="circular"
-                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-                variant="dot"
+              <Avatar alt="Remy Sharp" src={chat[1].userInfo.photoURL} />
+            </StyledBadge>
+            <Stack direction="column">
+              <Typography sx={{ fontWeight: "600", ml: 2 }}>
+                {chat[1].userInfo.displayName}
+              </Typography>
+              <Typography
+                sx={{
+                  ml: 2,
+                  fontWeight: "100",
+                  color: "grey",
+                  fontSize: "13px",
+                }}
               >
-                <Avatar alt="Remy Sharp" src={chat[1].userInfo?.photoURL} />
-              </StyledBadge>
-              <Stack direction="column">
-                <Typography sx={{ fontWeight: "600", ml: 2 }}>
-                  {chat[1].userInfo?.displayName}
-                </Typography>
-                <Typography
-                  sx={{
-                    ml: 2,
-                    fontWeight: "100",
-                    color: "grey",
-                    fontSize: "13px",
-                  }}
-                >
-                  {chat[1].lastMessage?.text}
-                </Typography>
-              </Stack>
-            </Box>
-          ))}
+                {chat[1].lastMessage?.text}
+              </Typography>
+            </Stack>
+          </Box>
+        ))}
       </Box>
     </Box>
   );
