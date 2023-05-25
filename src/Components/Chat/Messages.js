@@ -1,25 +1,12 @@
 import {
   Box,
   Divider,
-  IconButton,
-  InputBase,
-  Paper,
-  Stack,
-  Typography,
 } from "@mui/material";
-import { db, auth } from "../../firebase";
+import { db} from "../../firebase";
 import {
-  collection,
-  addDoc,
-  where,
-  serverTimestamp,
   onSnapshot,
-  query,
-  orderBy,
   doc,
 } from "firebase/firestore";
-import image from "../Assets/A10.jpg";
-import image2 from "../Assets/A11.jpg";
 import React, { useContext, useEffect, useState } from "react";
 import Scrollbars from "react-custom-scrollbars";
 import Input from "./Input";

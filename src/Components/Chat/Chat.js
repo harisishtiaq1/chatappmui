@@ -12,14 +12,14 @@ import {
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import CallIcon from "@mui/icons-material/Call";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import { styled } from "@mui/material/styles";
 import Messages from "./Messages";
-import { AuthContext } from "../../Context/AuthContext";
+import { ChatContext, data } from "../../Context/ChatContext";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -49,8 +49,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 function Chat() {
-  const { currentUser } = useContext(AuthContext);
-  const [room, setRoom] = useState("");
+  // const { currentUser } = useContext(AuthContext);
+  const { data } = useContext(ChatContext);
   return (
     <Paper sx={{ borderRadius: "16px", padding: 2, width: "900px" }}>
       <Box
@@ -66,11 +66,11 @@ function Chat() {
             anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
             variant="dot"
           >
-            <Avatar alt="Remy Sharp" src={currentUser.photoURL} />
+            <Avatar alt="Remy Sharp" src={data.user?.photoURL} />
           </StyledBadge>
           <Stack direction="column">
             <Typography sx={{ fontWeight: "600", ml: 2 }}>
-              {currentUser.displayName}
+              {data.user?.displayName}
             </Typography>
             <Typography
               sx={{
@@ -146,7 +146,7 @@ function Chat() {
         </Box>
       </Box>
       <Divider sx={{ backgroundColor: "grey", mt: 3 }} />
-      <Messages room={room} />
+      <Messages />
       <Box sx={{ display: "none" }}>
         <Divider sx={{ backgroundColor: "grey" }} />
         <Stack direction="row">
