@@ -19,7 +19,7 @@ import CallIcon from "@mui/icons-material/Call";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import { styled } from "@mui/material/styles";
 import Messages from "./Messages";
-import { ChatContext} from "../../Context/ChatContext";
+import { ChatContext } from "../../Context/ChatContext";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
