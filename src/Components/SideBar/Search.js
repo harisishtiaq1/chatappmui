@@ -49,18 +49,28 @@ function Search() {
       currentUser.uid > user.uid
         ? currentUser.uid + user.uid
         : user.uid + currentUser.uid;
+    console.log("combinedId", combinedId);
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
+      console.log("res", res);
       if (!res.exists()) {
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
         await updateDoc(doc(db, "userChats", currentUser.uid), {
-          [combinedId + ".userInfo"]: {
+          [combinedId+".userInfo"]: {
             uid: user.uid,
             displayName: user.displayName,
-            photoURL: user.photoURL,
+            photoURL: user.photoURL
           },
-          [combinedId + ".date"]: serverTimestamp(),
+          [combinedId+".date"]: serverTimestamp(),
+        });
+        await updateDoc(doc(db, "userChats", user.uid), {
+          [combinedId+".userInfo"]: {
+            uid: currentUser.uid,
+            displayName: currentUser.displayName,
+            photoURL: currentUser.photoURL,
+          },
+          [combinedId+".date"]: serverTimestamp(),
         });
       }
     } catch (err) {

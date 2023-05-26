@@ -29,7 +29,7 @@ function Message({ message }) {
             sx={{
               mt: 4,
               height: "20px",
-              color: "rgb(107, 114, 128)",
+              color: "black",
             }}
           >
             {message.createdAt.toDate().toLocaleTimeString()}

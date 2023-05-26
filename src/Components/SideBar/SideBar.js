@@ -26,7 +26,7 @@ const thumbStyle = {
 };
 
 function SideBar() {
-  const {currentUser}=useContext(AuthContext)
+  const { currentUser } = useContext(AuthContext);
   const [showMessageComponent, setShowMessageComponent] = useState(true);
   const [showContactsComponent, setShowContactsComponent] = useState(false);
   const [progressValue, setProgressValue] = useState(50);
@@ -88,7 +88,7 @@ function SideBar() {
                   </Typography>
                 </Stack>
               </Stack>
-              <Search/>
+              <Search />
               <Stack
                 direction="row"
                 sx={{
