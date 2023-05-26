@@ -51,7 +51,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 function Chat() {
   const { data } = useContext(ChatContext);
   return (
-    <Paper sx={{ borderRadius: "16px", padding: 2, width: "900px" }}>
+    <Paper sx={{ borderRadius: "16px", padding: 2, width: "920px" }}>
       <Box
         sx={{
           display: "flex",

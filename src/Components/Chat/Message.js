@@ -14,6 +14,7 @@ function Message({ message }) {
   }, [message]);
   return (
     <Box
+      ref={ref}
       key={message.id}
       sx={{
         display: "flex",
@@ -23,18 +24,7 @@ function Message({ message }) {
         mt: 3,
       }}
     >
-      <Box ref={ref} sx={{ display: "flex", flexDirection: "column" }}>
-        {message.createdAt && (
-          <Typography
-            sx={{
-              mt: 4,
-              height: "20px",
-              color: "black",
-            }}
-          >
-            {message.createdAt.toDate().toLocaleTimeString()}
-          </Typography>
-        )}
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Box
           sx={{
             border: "1px solid rgb(238, 238, 238)",
