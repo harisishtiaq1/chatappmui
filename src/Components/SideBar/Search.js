@@ -57,20 +57,20 @@ function Search() {
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
         await updateDoc(doc(db, "userChats", currentUser.uid), {
-          [combinedId+".userInfo"]: {
+          [combinedId + ".userInfo"]: {
             uid: user.uid,
             displayName: user.displayName,
-            photoURL: user.photoURL
+            photoURL: user.photoURL,
           },
-          [combinedId+".date"]: serverTimestamp(),
+          [combinedId + ".date"]: serverTimestamp(),
         });
         await updateDoc(doc(db, "userChats", user.uid), {
-          [combinedId+".userInfo"]: {
+          [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
             displayName: currentUser.displayName,
             photoURL: currentUser.photoURL,
           },
-          [combinedId+".date"]: serverTimestamp(),
+          [combinedId + ".date"]: serverTimestamp(),
         });
       }
     } catch (err) {
@@ -81,7 +81,6 @@ function Search() {
   };
   return (
     <>
-      {err && <Typography> User Not Found</Typography>}
       <Paper
         sx={{
           width: "210px",
@@ -107,6 +106,7 @@ function Search() {
           <SearchIcon fontSize="small" />
         </IconButton>
       </Paper>
+      {err && <Typography sx={{ color: "black" }}> User Not Found</Typography>}
       {user && (
         <Box
           onClick={handleSelect}

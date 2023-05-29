@@ -34,7 +34,7 @@ function App() {
     if (!currentUser) {
       return <Navigate to="/login" />;
     }
-    return children
+    return children;
   };
   const theme = createTheme({
     typography: {

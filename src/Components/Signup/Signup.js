@@ -17,7 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [err, setErr] = React.useState(false);
   const [displayName, setDisplayName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -55,7 +55,7 @@ export default function SignUp() {
               photoURL: downloadURL,
             });
             await setDoc(doc(db, "userChats", res.user.uid), {});
-            navigate("/")
+            navigate("/");
           });
         }
       );
